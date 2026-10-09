@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per i Proprietari | Plutone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plutone: {
+                            dark: '#062446',
+                            light: '#FDE047',
+                            accent: '#FACC15',
+                            gray: '#1A2436'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'slow-zoom': 'slowZoom 20s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slowZoom: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-effect { box-shadow: 0 0 20px rgba(253, 224, 71, 0.15); }
+        .text-glow { text-shadow: 0 0 10px rgba(253, 224, 71, 0.3); }
+    </style>
+</head>
+<body class="bg-plutone-dark text-white font-sans antialiased">
+
+    <!-- HEADER -->
+<header class="container mx-auto px-6 py-4 flex justify-center items-center relative z-50 bg-plutone-dark/95 backdrop-blur-md sticky top-0 border-b border-gray-800">
+    <!-- Menu di Navigazione (Centrato) -->
+    <nav class="flex flex-wrap justify-center gap-6 lg:gap-8 font-semibold items-center text-sm lg:text-base">
+        <a href="index.html" class="text-white hover:text-plutone-light transition">Home</a>
+        <a href="clienti.html" class="text-white hover:text-plutone-light transition">Apri uno Spazio</a>
+        <a href="proprietari.html" class="text-plutone-light border-b-2 border-plutone-light pb-1">Proponi un Immobile</a>
+		<a href="#" class="text-gray-400 cursor-not-allowed" title="In arrivo">Mission</a>
+        <a href="faq.html" class="text-white hover:text-plutone-light transition">FAQ</a>
+    </nav>
+</header>
+
+    <!-- HERO SECTION (Con Immagine di sfondo come da istruzioni) -->
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden border-b border-gray-800">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- PREDISPOSIZIONE NOME FILE CASUALE PER IMMAGINE SFONDO -->
+            <img src="../png/proprietari_page/sfondo_proprietari.jpeg" alt="Spazio Chiuso Realistico" class="w-full h-full object-cover animate-slow-zoom opacity-30 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-t from-plutone-dark via-plutone-dark/40 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <span class="text-plutone-light font-bold tracking-widest uppercase text-sm mb-4 block animate-float">Gestione Sicura e Senza Pensieri</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-white leading-tight drop-shadow-2xl">
+                Valorizza il tuo immobile sfitto.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                Plutone è il servizio che trasforma il tuo locale vuoto in una risorsa attiva, garantendoti sicurezza sui pagamenti, zero oneri di gestione e massima flessibilità.
+            </p>
+            <div class="flex justify-center">
+                <a href="#contatti" class="bg-plutone-light text-plutone-dark px-10 py-5 rounded-lg font-bold text-xl hover:bg-plutone-accent transition-all duration-300 shadow-[0_0_25px_rgba(253,224,71,0.3)] hover:-translate-y-1">
+                    Proponi il tuo spazio
+                </a>
+            </div>
+        </div>
+    </section>
+	<p class="text-gray-300">*</p> <!--Asterisco per IA -->
+
+    <!-- FORMATI: LOCALE O VETRINA (Adattata allo stile dei clienti come da PDF) -->
+    <section class="py-20 bg-plutone-gray relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-glow">Affidaci l'intero locale o soltanto la vetrina</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto text-lg mb-2">Con Plutone non sei obbligato a cedere l'intero immobile se non lo desideri. Offriamo soluzioni flessibili che si adattano alle tue esigenze e allo stato del tuo locale.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 mb-16">
+                <!-- Intero Locale -->
+                <div class="group block bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-plutone-light">
+                    <div class="h-80 relative overflow-hidden">
+                        <!-- PREDISPOSIZIONE NOME FILE CASUALE -->
+                        <img src="../png/proprietari_page/Intero_Locale.jpeg" alt="Intero Locale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <h3 class="absolute bottom-6 left-6 text-3xl font-bold text-white group-hover:text-plutone-light transition-colors">Intero Locale</h3>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <p class="text-gray-700 font-medium text-lg leading-relaxed">Gestiamo lo spazio per intero, rendendolo vivo, illuminato e produttivo, pronto ad accogliere temporary store o mostre.*</p>
+                    </div>
+                </div>
+
+                <!-- Solo Vetrina -->
+                <div class="group block bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-plutone-light">
+                    <div class="h-80 relative overflow-hidden">
+                        <!-- PREDISPOSIZIONE NOME FILE CASUALE -->
+                        <img src="../png/proprietari_page/Vetrina_Espositiva.jpeg" alt="Solo Vetrina" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <h3 class="absolute bottom-6 left-6 text-3xl font-bold text-white group-hover:text-plutone-light transition-colors">Solo Vetrina</h3>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <p class="text-gray-700 font-medium text-lg leading-relaxed">Possiamo utilizzare esclusivamente le vetrine per allestimenti ed esposizioni visibili dalla strada, mantenendo vivo e desiderabile l'immobile senza occupare gli spazi interni.*</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IL NOSTRO IMPEGNO (Ora è un blocco normale, non fluttuante) -->
+            <div class="bg-plutone-dark rounded-xl p-8 border border-gray-700 max-w-4xl mx-auto text-center">
+                <h3 class="text-2xl font-bold text-white mb-4">Il nostro impegno verso di te</h3>
+                <p class="text-gray-300 mb-4 text-lg">
+                    Il tuo immobile resta sempre in condizioni ottimali, pronto per essere affittato a lungo termine quando lo desideri. Evitiamo il deterioramento e la manutenzione straordinaria tipica dei locali rimasti chiusi a lungo.
+                </p>
+                <p class="text-plutone-light font-semibold text-xl">
+                    Una vetrina accesa attira molta più attenzione di una serranda abbassata.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICI PROPRIETARI (Uniformati, tolto bordo oro) -->
+    <section class="container mx-auto px-6 py-20 border-t border-gray-800">
+        <h2 class="text-4xl font-bold mb-16 text-center text-glow">I Vantaggi per la tua Proprietà</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Beneficio 1: Sicurezza (Modificato per togliere il bordo fisso oro) -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 transition duration-300 group hover:border-plutone-light">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Sicurezza sui pagamenti</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Con Plutone non rischi morosità: i nostri contratti prevedono pagamento anticipato e cauzione. L'immobile resta sempre sotto la nostra gestione diretta: in caso di problemi, interveniamo noi.</p>
+            </div>
+            
+            <!-- Beneficio 2: Zero Vincoli -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 transition duration-300 group hover:border-plutone-light">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Senza vincoli a lungo termine</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Resti completamente libero. Puoi decidere in qualsiasi momento di affittare il tuo immobile a lungo termine o destinarlo ad altro uso. Nessun vincolo o obbligo prolungato verso di noi.</p>
+            </div>
+
+            <!-- Beneficio 3: Zero Burocrazia e Gestione -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 transition duration-300 group hover:border-plutone-light">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Zero burocrazia e nessun impegno</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Firmi un solo contratto, chiaro e semplice, una volta sola. A tutto il resto — logistica, pulizie, allestimento e verifica del locale — pensiamo noi. A te basta consegnarci le chiavi.</p>
+            </div>
+
+            <!-- Beneficio 4: Entrata e Conversione -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 transition duration-300 group hover:border-plutone-light">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Entrata complementare e visibilità</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Ottieni un'entrata per coprire le spese di manutenzione. Inoltre, chi prova il tuo spazio temporaneamente ed ha successo, è molto propenso a trasformare l'esperienza in una locazione stabile.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MODULO CONTATTI PROPRIETARI -->
+    <section id="contatti" class="container mx-auto px-6 py-24 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto bg-gradient-to-br from-plutone-gray to-[#0f172a] p-10 rounded-2xl border border-gray-700 shadow-2xl relative">
+            <div class="absolute -top-4 -left-4 text-6xl">🔑</div>
+            <h2 class="text-3xl font-bold mb-2 text-plutone-light ml-8">Proponi il tuo Immobile</h2>
+            <!-- Rimando alle FAQ aggiunto come nella pagina Clienti -->
+            <p class="text-gray-300 mb-8 ml-8 text-sm">Compila il modulo per metterti in contatto con il nostro team. Valuteremo insieme, senza alcun vincolo, le potenzialità del tuo spazio. <br><span class="inline-block mt-2">Hai qualche dubbio? <a href="faq.html" class="text-plutone-light hover:underline font-semibold">Consulta le nostre FAQ</a>.</span></p>
+            
+            <form class="flex flex-col gap-5">
+                <input type="hidden" name="form_type" value="richiesta_proprietari">
+                
+                <div class="grid md:grid-cols-2 gap-5">
+                    <input type="text" placeholder="Nome e Cognome" name="nome" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-white focus:outline-none focus:border-plutone-light transition" required>
+                    <input type="email" placeholder="Indirizzo E-mail" name="email" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-white focus:outline-none focus:border-plutone-light transition" required>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-5">
+                    <input type="text" placeholder="Indirizzo del Locale (es. Via Calmaggiore, Treviso)" name="indirizzo_locale" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-white focus:outline-none focus:border-plutone-light transition" required>
+                    
+                    <select name="formato_disponibile" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-gray-300 focus:outline-none focus:border-plutone-light transition">
+                        <option value="" disabled selected>Cosa vorresti affidarci?</option>
+                        <option value="intero_locale">L'intero locale</option>
+                        <option value="solo_vetrina">Solo la vetrina</option>
+                        <option value="da_valutare">Sono indeciso, vorrei un consiglio</option>
+                    </select>
+                </div>
+
+                <textarea placeholder="Descrivi brevemente lo stato dell'immobile (es. metratura approssimativa, da quanto tempo è sfitto, ecc.)..." rows="4" name="messaggio" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-white focus:outline-none focus:border-plutone-light transition"></textarea>
+
+                <div class="bg-[#0B1B32] p-4 rounded border border-gray-700 mt-2">
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" checked class="mt-1 w-5 h-5 accent-plutone-light rounded bg-plutone-gray border-gray-600 focus:ring-plutone-light">
+                        <span class="text-sm text-gray-300 leading-tight">
+                            Desidero iscrivermi alla newsletter per restare aggiornato sulle novità di Plutone. 
+                            <br><span class="text-xs text-gray-500 mt-1 block">La compilazione di questo modulo non comporta alcun vincolo contrattuale. I tuoi dati verranno trattati con la massima riservatezza e utilizzati esclusivamente per gestire questa richiesta, nel pieno rispetto della Privacy Policy.</span>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-plutone-light text-plutone-dark font-extrabold text-lg py-4 rounded hover:bg-plutone-accent transition shadow-[0_0_15px_rgba(253,224,71,0.2)] mt-2">
+                    Invia Richiesta di Contatto
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER COMPLETAMENTE RIVISITATO -->
+    <footer class="bg-[#050d1a] pt-16 pb-8 border-t border-gray-900 text-sm text-gray-400">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12 border-b border-gray-800 pb-12">
+            
+            <!-- Colonna 1: Brand -->
+            <div class="lg:col-span-1">
+                <img src="../png/Logo Plutone.png" alt="Plutone Logo Footer" class="h-16 mb-6 opacity-90">
+                <p class="text-gray-400 mb-4 pr-2">La piattaforma intelligente che trasforma i locali sfitti in spazi vivi per brand, artisti e artigiani.</p>
+            </div>
+
+            <!-- Colonna 2: Contatti Fisici -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">Contatti</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="mt-0.5">📍</span> 
+                        <span class="leading-tight">Via Montello, 7A<br>31100 Treviso (TV)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span>✉️</span> <a href="mailto:plutone.treviso@gmail.com" class="hover:text-plutone-light transition font-semibold text-white break-all">plutone.treviso@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Colonna 3: Social & Info Separate -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">I nostri Social</h4>
+                <ul class="space-y-3 mb-6">
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2 ">📸 Instagram</a></li>
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2">📘 Facebook</a></li>
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2">💼 LinkedIn</a></li>
+                </ul>
+
+                <h4 class="text-white font-bold text-lg mb-3">Info Legali</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonna 4: Partner (MODIFICATA) -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">I Nostri Partner</h4>
+                <a href="#" class="inline-block hover:opacity-75 transition bg-white/5 p-4 rounded-lg border border-gray-700">
+                    <img src="../png/HEADER-02.webp" alt="Logo Ground Control" class="h-10 w-auto object-contain">
+                </a>
+            </div>
+
+            <!-- Colonna 5: Newsletter Rapida -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">Newsletter</h4>
+                <p class="mb-4 text-xs">Rimani aggiornato sui nuovi spazi disponibili e sulle iniziative a Treviso.</p>
+                <form class="flex flex-col gap-3">
+                    <input type="hidden" name="form_type" value="newsletter_generica">
+                    <input type="email" placeholder="Il tuo indirizzo email" class="w-full px-4 py-3 rounded bg-plutone-dark border border-gray-700 text-white focus:outline-none focus:border-plutone-light" required>
+                    <button type="submit" class="w-full bg-gray-700 text-white font-bold py-3 rounded hover:bg-plutone-light hover:text-plutone-dark transition">Iscriviti</button>
+                </form>
+            </div>
+
+        </div>
+        
+        <div class="container mx-auto px-6 text-center text-xs text-gray-500 space-y-2">
+            <!-- Asterisco aggiunto -->
+            <p>* Foto generate con l'IA.</p>
+            <p>&copy; 2026 Plutone - Riaccendiamo le vetrine. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
