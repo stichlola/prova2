@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Clienti | Plutone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plutone: {
+                            dark: '#062446',
+                            light: '#FDE047',
+                            accent: '#FACC15',
+                            gray: '#1A2436'
+                        }
+                    },
+                    animation: {
+                        'slow-zoom': 'slowZoom 20s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        slowZoom: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-effect { box-shadow: 0 0 20px rgba(253, 224, 71, 0.15); }
+        .text-glow { text-shadow: 0 0 10px rgba(253, 224, 71, 0.3); }
+        .highlight-box { 
+            border-color: #FACC15 !important; 
+            box-shadow: 0 0 15px rgba(253, 224, 71, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-plutone-dark text-white font-sans antialiased">
+
+    <!-- HEADER -->
+<header class="container mx-auto px-6 py-4 flex justify-center items-center relative z-50 bg-plutone-dark/95 backdrop-blur-md sticky top-0 border-b border-gray-800">
+    <!-- Menu di Navigazione (Centrato) -->
+    <nav class="flex flex-wrap justify-center gap-6 lg:gap-8 font-semibold items-center text-sm lg:text-base">
+        <a href="index.html" class="text-white hover:text-plutone-light transition">Home</a>
+        <a href="clienti.html" class="text-plutone-light border-b-2 border-plutone-light pb-1">Apri uno Spazio</a>
+        <a href="proprietari.html" class="text-white hover:text-plutone-light transition">Proponi un Immobile</a>
+		<a href="#" class="text-gray-400 cursor-not-allowed" title="In arrivo">Mission</a>
+        <a href="faq.html" class="text-white hover:text-plutone-light transition">FAQ</a>
+    </nav>
+</header>
+
+    <!-- HERO SECTION IMMERSIVA -->
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden border-b border-gray-800">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="../png/clienti_page/mostra_arte.jpeg" alt="Spazio Commerciale Treviso" class="w-full h-full object-cover animate-slow-zoom opacity-30 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-t from-plutone-dark via-plutone-dark/20 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-white leading-tight drop-shadow-2xl">
+                Sei in cerca di uno spazio a Treviso?
+            </h1>
+            <p class="text-xl md:text-3xl text-gray-200 mb-10 max-w-4xl mx-auto font-light">
+                Vuoi sperimentare uno spazio fisico? Vuoi realizzare un evento?
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <!-- CTA 1: Contatto Immediato -->
+                <a href="#contatti" class="bg-plutone-light text-plutone-dark px-10 py-5 rounded-lg font-bold text-xl hover:bg-plutone-accent transition-all duration-300 shadow-[0_0_25px_rgba(253,224,71,0.3)] hover:-translate-y-1">
+                    Parla con Noi ora
+                </a>
+                <!-- CTA 2: Iscrizione -->
+                <a href="#newsletter" class="bg-transparent border-2 border-white text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-white hover:text-plutone-dark transition-all duration-300 hover:-translate-y-1">
+                    Resta aggiornato
+                </a>
+            </div>
+        </div>
+    </section>
+	<p class="text-gray-300">*</p> <!--Asterisco per IA -->
+
+    <!-- SELEZIONE SERVIZIO (Modificata come da PDF: Box Bianchi e Immagini Grandi/Evidenti) -->
+    <section class="py-20 bg-plutone-gray relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-glow">Scegli il servizio più adatto a te</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto text-lg mb-2">Vuoi essere fisicamente presente con un'attività aperta al pubblico? Vuoi aumentare la visibilità dei tuoi prodotti?</p>
+                <p class="text-gray-400 text-sm">Due soluzioni flessibili studiate per le diverse esigenze di esposizione e vendita.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Spazio Commerciale -->
+                <a href="#sezione-spazi" class="group block bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-plutone-light transition-all duration-300 shadow-xl hover:-translate-y-2">
+                    <div class="h-80 relative overflow-hidden">
+                        <img src="../png/clienti_page/Spazio_Commerciale.jpeg" alt="Spazio Commerciale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <h3 class="absolute bottom-6 left-6 text-3xl font-bold text-white group-hover:text-plutone-light transition-colors">Spazio Commerciale</h3>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <p class="text-gray-700 font-medium text-lg leading-relaxed mb-6">Scegli uno spazio commerciale che puoi usare come negozio, per organizzare eventi o per dar vita alle tue idee.*</p>
+                        <span class="inline-flex items-center text-plutone-dark font-extrabold mt-auto group-hover:translate-x-2 transition-transform">Esplora Spazi &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- Vetrina -->
+                <a href="#sezione-vetrine" class="group block bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-plutone-light transition-all duration-300 shadow-xl hover:-translate-y-2">
+                    <div class="h-80 relative overflow-hidden">
+                        <img src="../png/clienti_page/Vetrina_Espositiva.jpeg" alt="Vetrina Espositiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <h3 class="absolute bottom-6 left-6 text-3xl font-bold text-white group-hover:text-plutone-light transition-colors">Vetrina Espositiva</h3>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <p class="text-gray-700 font-medium text-lg leading-relaxed mb-6">Lo spazio commerciale non fa per te? Scegli una vetrina per esposizioni, allestimenti o per pubblicizzare la tua attività.*</p>
+                        <span class="inline-flex items-center text-plutone-dark font-extrabold mt-auto group-hover:translate-x-2 transition-transform">Esplora Vetrine &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICI STRATEGICI (Riordinati e senza bordo oro) -->
+    <section class="container mx-auto px-6 py-20 border-t border-gray-800">
+        <h2 class="text-4xl font-bold mb-16 text-center text-glow">Perché scegliere il servizio Plutone</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Beneficio 1: Supporto Marketing (Prima era 3) -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 hover:border-plutone-light transition duration-300 group">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Supporto marketing</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Ti offriamo supporto completo nella promozione online e offline, prima, durante e dopo la tua attività: ci pensiamo noi ad attirare un pubblico coerente con la tua offerta.</p>
+            </div>
+
+            <!-- Beneficio 2: Supporto Organizzativo (Prima era 4) -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 hover:border-plutone-light transition duration-300 group">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Supporto organizzativo</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Ci occupiamo di affiancarti in ogni aspetto pratico e burocratico: contratti, logistica, allestimento, arredi, pulizia e strumenti operativi come POS o cassa.</p>
+            </div>
+
+            <!-- Beneficio 3: Libertà (Prima era 1) -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 hover:border-plutone-light transition duration-300 group">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Libertà di durata</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Lo spazio si affitta per il tempo che TU ritieni davvero necessario: anche solo per una settimana o più, a seconda delle tue preferenze. Nessun vincolo di permanenza.</p>
+            </div>
+            
+            <!-- Beneficio 4: Visibilità (Prima era 2) -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 hover:border-plutone-light transition duration-300 group">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Visibilità</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">I nostri spazi si collocano nel pieno centro storico di Treviso, offrendoti l'opportunità di raggiungere un vasto pubblico di passaggio ogni singolo giorno.</p>
+            </div>
+
+            <!-- Beneficio 5: Risparmio -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 hover:border-plutone-light transition duration-300 group">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Risparmio</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Risparmi rispetto ai costi che dovresti sostenere aprendo un'attività in autonomia. Non hai spese per lunghi mesi di affitto vincolante né per ristrutturazioni e arredi permanenti.</p>
+            </div>
+
+            <!-- Beneficio 6: Basso Rischio -->
+            <div class="bg-gradient-to-br from-plutone-gray to-[#0f172a] p-8 rounded-xl border border-gray-700 hover:border-plutone-light transition duration-300 group">
+                <div class="mb-5 text-gray-400 group-hover:text-white transition-colors">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-plutone-accent">Basso rischio</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">Metti alla prova la tua idea, prodotto o servizio con un investimento molto contenuto e per un periodo limitato. Testa il mercato senza esporti finanziariamente.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEZIONE VETRINA: LOCALI E SPAZI DIVISI -->
+    <section id="locali" class="bg-[#050d1a] py-24 border-t border-b border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-glow">I Locali Disponibili</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Esplora le nostre vetrine e i nostri spazi nel cuore di Treviso. Clicca su ciascun locale per maggiori dettagli (Funzionalità dinamica in arrivo).</p>
+            </div>
+
+            <!-- GRUPPO 1: SPAZI COMMERCIALI -->
+            <div id="sezione-spazi" class="mb-16">
+                <h3 class="text-2xl font-bold text-plutone-light mb-8 flex items-center gap-3">
+                    <span class="w-8 h-[2px] bg-plutone-light"></span> Spazi Commerciali
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Spazio 1 -->
+                    <div class="bg-plutone-gray rounded-xl overflow-hidden border border-gray-700 hover:border-plutone-light transition-all duration-300 group cursor-pointer">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="../png/clienti_page/Boutique_Calmaggiore.png" alt="Locale Piazza dei Signori" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col h-full">
+                            <h3 class="text-xl font-bold text-white mb-1">Boutique Calmaggiore</h3>
+                            <p class="text-sm text-plutone-accent mb-3">📍 Via Calmaggiore, Treviso (60 mq)</p>
+                            <p class="text-gray-400 text-sm line-clamp-2 mb-6">Spazio luminoso ideale per abbigliamento, cosmesi e pop-up di lancio. Ottimo passaggio pedonale.*</p>
+                            <button class="mt-auto w-full border border-gray-500 text-white py-2 rounded hover:bg-plutone-light hover:text-plutone-dark hover:border-plutone-light transition font-semibold">Vedi Dettagli</button>
+                        </div>
+                    </div>
+
+                    <!-- Spazio 2 -->
+                    <div class="bg-plutone-gray rounded-xl overflow-hidden border border-gray-700 hover:border-plutone-light transition-all duration-300 group cursor-pointer">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="../png/clienti_page/Galleria_SanLeonardo.png" alt="Spazio San Leonardo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col h-full">
+                            <h3 class="text-xl font-bold text-white mb-1">Galleria San Leonardo</h3>
+                            <p class="text-sm text-plutone-accent mb-3">📍 Piazza S. Leonardo, Treviso (85 mq)</p>
+                            <p class="text-gray-400 text-sm line-clamp-2 mb-6">Ampio locale con doppie vetrine, ideale per mostre d'arte, showroom B2B ed eventi speciali.*</p>
+                            <button class="mt-auto w-full border border-gray-500 text-white py-2 rounded hover:bg-plutone-light hover:text-plutone-dark hover:border-plutone-light transition font-semibold">Vedi Dettagli</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRUPPO 2: VETRINE ESPOSITIVE -->
+            <div id="sezione-vetrine">
+                <h3 class="text-2xl font-bold text-plutone-light mb-8 flex items-center gap-3">
+                    <span class="w-8 h-[2px] bg-plutone-light"></span> Vetrine Espositive
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Vetrina 1 -->
+                    <div class="bg-plutone-gray rounded-xl overflow-hidden border border-gray-700 hover:border-plutone-light transition-all duration-300 group cursor-pointer">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="../png/clienti_page/Vetrina_Pescheria.png" alt="Vetrina Pescheria" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col h-full">
+                            <h3 class="text-xl font-bold text-white mb-1">Vetrina Zona Pescheria</h3>
+                            <p class="text-sm text-plutone-accent mb-3">📍 Isola della Pescheria, Treviso</p>
+                            <p class="text-gray-400 text-sm line-clamp-2 mb-6">Posizione strategica serale e diurna. Perfetta per esposizioni di design, artigianato o pubblicità.*</p>
+                            <button class="mt-auto w-full border border-gray-500 text-white py-2 rounded hover:bg-plutone-light hover:text-plutone-dark hover:border-plutone-light transition font-semibold">Vedi Dettagli</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-sm text-gray-500 mt-12">(Sezione predisposta per il caricamento dinamico dei locali disponibili)</p>
+        </div>
+    </section>
+
+    <!-- MODULO CONTATTI & NEWSLETTER -->
+    <section id="contatti" class="container mx-auto px-6 py-24 border-t border-gray-800">
+        <div class="grid lg:grid-cols-5 gap-12">
+            
+            <!-- FORM CONTATTO -->
+            <div class="lg:col-span-3 bg-gradient-to-br from-plutone-gray to-[#0f172a] p-10 rounded-2xl border border-gray-700 shadow-2xl relative">
+                <div class="absolute -top-4 -left-4 text-6xl">✉️</div>
+                <h2 class="text-3xl font-bold mb-2 text-plutone-light ml-8">Richiedi Informazioni o Spazi</h2>
+                <!-- Aggiunto rimando alle FAQ qui sotto -->
+                <p class="text-gray-300 mb-8 ml-8 text-sm">Compila il form per farti conoscere e verificare la disponibilità. Nessun vincolo o obbligo. <br><span class="inline-block mt-2">Hai qualche dubbio? <a href="faq.html" class="text-plutone-light hover:underline font-semibold">Consulta le nostre FAQ</a>.</span></p>
+                
+                <form class="flex flex-col gap-5">
+                    <input type="hidden" name="form_type" value="richiesta_clienti">
+                    
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <input type="text" placeholder="Nome Azienda / Brand" name="azienda" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-white focus:outline-none focus:border-plutone-light transition" required>
+                        <input type="email" placeholder="Indirizzo E-mail" name="email" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-white focus:outline-none focus:border-plutone-light transition" required>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <select name="formato" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-gray-300 focus:outline-none focus:border-plutone-light transition">
+                            <option value="" disabled selected>Formato di interesse...</option>
+                            <option value="spazio">Spazio Commerciale Completo</option>
+                            <option value="vetrina">Solo Vetrina</option>
+                            <option value="entrambi">Entrambi / Da valutare</option>
+                        </select>
+                        <select name="periodo" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-gray-300 focus:outline-none focus:border-plutone-light transition">
+                            <option value="" disabled selected>Durata ipotizzata...</option>
+                            <option value="giorni">Alcuni giorni (Es. weekend)</option>
+                            <option value="settimana">1 Settimana</option>
+                            <option value="mesi">Uno o più mesi</option>
+                            <option value="non_so">Non ho ancora deciso</option>
+                        </select>
+                    </div>
+
+                    <textarea placeholder="Raccontaci la tua idea o chiedi informazioni..." rows="3" name="messaggio" class="w-full px-4 py-4 rounded bg-plutone-dark border border-gray-600 text-white focus:outline-none focus:border-plutone-light transition"></textarea>
+
+                    <div class="bg-[#0B1B32] p-4 rounded border border-gray-700 mt-2">
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" checked class="mt-1 w-5 h-5 accent-plutone-light rounded bg-plutone-gray border-gray-600 focus:ring-plutone-light">
+                            <span class="text-sm text-gray-300 leading-tight">
+                                Desidero iscrivermi alla newsletter per restare aggiornato sulle novità di Plutone. 
+                                <br><span class="text-xs text-gray-500 mt-1 block">La compilazione di questo modulo non comporta obblighi. I tuoi dati verranno utilizzati esclusivamente per elaborare questa richiesta e gestire la comunicazione, nel pieno rispetto della Privacy Policy.</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-plutone-light text-plutone-dark font-extrabold text-lg py-4 rounded hover:bg-plutone-accent transition shadow-[0_0_15px_rgba(253,224,71,0.2)] mt-2">
+                        Invia Richiesta Privata
+                    </button>
+                </form>
+            </div>
+
+            <!-- NEWSLETTER BOX -->
+            <div id="newsletter" class="lg:col-span-2 bg-plutone-dark p-10 rounded-2xl border border-gray-700 flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-4 text-white">Non sei ancora pronto ad aprire? <br><span class="text-plutone-light">Resta aggiornato!</span></h3>
+                <p class="text-gray-400 mb-8">Iscriviti alla nostra Newsletter Clienti. Ti invieremo comunicazioni esclusive sui nuovi spazi che si liberano, inviti agli eventi e report di mercato sui format testati in centro.</p>
+                
+                <form class="flex flex-col gap-4">
+                    <input type="hidden" name="form_type" value="newsletter_clienti">
+                    <input type="text" placeholder="Nome (opzionale)" class="w-full px-4 py-3 rounded bg-plutone-gray border border-gray-600 text-white focus:outline-none focus:border-white transition">
+                    <input type="email" placeholder="Indirizzo E-mail *" class="w-full px-4 py-3 rounded bg-plutone-gray border border-gray-600 text-white focus:outline-none focus:border-white transition" required>
+                    <button type="submit" class="w-full border-2 border-white text-white font-bold py-3 rounded hover:bg-white hover:text-plutone-dark transition mt-2">
+                        Resta Aggiornato
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER COMPLETAMENTE RIVISITATO -->
+    <footer class="bg-[#050d1a] pt-16 pb-8 border-t border-gray-900 text-sm text-gray-400">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12 border-b border-gray-800 pb-12">
+            
+            <!-- Colonna 1: Brand -->
+            <div class="lg:col-span-1">
+                <img src="../png/Logo Plutone.png" alt="Plutone Logo Footer" class="h-16 mb-6 opacity-90">
+                <p class="text-gray-400 mb-4 pr-2">La piattaforma intelligente che trasforma i locali sfitti in spazi vivi per brand, artisti e artigiani.</p>
+            </div>
+
+            <!-- Colonna 2: Contatti Fisici -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">Contatti</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="mt-0.5">📍</span> 
+                        <span class="leading-tight">Via Montello, 7A<br>31100 Treviso (TV)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span>✉️</span> <a href="mailto:plutone.treviso@gmail.com" class="hover:text-plutone-light transition font-semibold text-white break-all">plutone.treviso@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Colonna 3: Social & Info Separate -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">I nostri Social</h4>
+                <ul class="space-y-3 mb-6">
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2 ">📸 Instagram</a></li>
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2">📘 Facebook</a></li>
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2">💼 LinkedIn</a></li>
+                </ul>
+
+                <h4 class="text-white font-bold text-lg mb-3">Info Legali</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonna 4: Partner (MODIFICATA) -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">I Nostri Partner</h4>
+                <!-- Modificato 'block' in 'inline-block' per far sì che il box si adatti alla larghezza dell'immagine -->
+                <a href="#" class="inline-block hover:opacity-75 transition bg-white/5 p-4 rounded-lg border border-gray-700">
+                    <img src="../png/HEADER-02.webp" alt="Logo Ground Control" class="h-10 w-auto object-contain">
+                </a>
+            </div>
+
+            <!-- Colonna 5: Newsletter Rapida -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">Newsletter</h4>
+                <p class="mb-4 text-xs">Rimani aggiornato sui nuovi spazi disponibili e sulle iniziative a Treviso.</p>
+                <form class="flex flex-col gap-3">
+                    <input type="hidden" name="form_type" value="newsletter_generica">
+                    <input type="email" placeholder="Il tuo indirizzo email" class="w-full px-4 py-3 rounded bg-plutone-dark border border-gray-700 text-white focus:outline-none focus:border-plutone-light" required>
+                    <button type="submit" class="w-full bg-gray-700 text-white font-bold py-3 rounded hover:bg-plutone-light hover:text-plutone-dark transition">Iscriviti</button>
+                </form>
+            </div>
+
+        </div>
+        
+        <div class="container mx-auto px-6 text-center text-xs text-gray-500 space-y-2">
+            <!-- Asterisco aggiunto -->
+            <p>* Foto generate con l'IA.</p>
+            <p>&copy; 2026 Plutone - Riaccendiamo le vetrine. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plutone | Riaccendiamo le vetrine insieme!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plutone: {
+                            dark: '#062446',
+                            light: '#FDE047',
+                            accent: '#FACC15',
+                            gray: '#1A2436'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 5s ease-in-out infinite',
+                        'accensione': 'accensione 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        accensione: {
+                            /* Luce accesa e bagliore */
+                            '0%, 100%': { filter: 'brightness(1.15) drop-shadow(0 0 25px rgba(253, 224, 71, 0.4))' },
+                            /* Luce "spenta" o fievole */
+                            '50%': { filter: 'brightness(0.6) drop-shadow(0 0 0px rgba(253, 224, 71, 0))' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-effect { box-shadow: 0 0 20px rgba(253, 224, 71, 0.15); }
+        .text-glow { text-shadow: 0 0 10px rgba(253, 224, 71, 0.3); }
+    </style>
+</head>
+<body class="bg-plutone-dark text-white font-sans antialiased">
+
+<!-- HEADER -->
+<header class="container mx-auto px-6 py-4 flex justify-center items-center relative z-50 bg-plutone-dark/95 backdrop-blur-md sticky top-0 border-b border-gray-800">
+    <!-- Menu di Navigazione (Centrato) -->
+    <nav class="flex flex-wrap justify-center gap-6 lg:gap-8 font-semibold items-center text-sm lg:text-base">
+        <a href="index.html" class="text-plutone-light font-extrabold border-b-2 border-plutone-light pb-1 transition">Home</a>
+        <a href="clienti.html" class="text-white hover:text-plutone-light transition">Apri uno Spazio</a>
+        <a href="proprietari.html" class="text-white hover:text-plutone-light transition">Proponi un Immobile</a>
+		<a href="#" class="text-gray-400 cursor-not-allowed" title="In arrivo">Mission</a>
+        <a href="faq.html" class="text-white hover:text-plutone-light transition">FAQ</a>
+    </nav>
+</header>
+
+    <!-- HERO SECTION -->
+    <section class="container mx-auto px-6 py-12 md:py-24 flex flex-col-reverse lg:flex-row items-center gap-12 justify-between">
+        <div class="lg:w-3/5 text-center lg:text-left">
+            <h1 class="text-7xl md:text-9xl font-extrabold text-white mb-2 tracking-tighter">Plutone</h1>
+            <h2 class="text-3xl md:text-5xl font-medium text-plutone-light mb-6">Riaccendiamo le vetrine</h2>
+            <p class="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed">
+                Plutone è un servizio innovativo che restituisce vita ai negozi sfitti valorizzando lo spazio urbano creando eventi temporanei.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                <a href="#contatti" class="bg-transparent text-white border-2 border-plutone-light px-8 py-4 rounded-lg font-bold text-lg hover:bg-plutone-light hover:text-plutone-dark transition-all duration-300 text-center shadow-lg hover:-translate-y-1">
+                    Cerchi uno spazio o una vetrina?
+                </a>
+                <a href="#contatti" class="bg-transparent text-white border-2 border-plutone-light px-8 py-4 rounded-lg font-bold text-lg hover:bg-plutone-light hover:text-plutone-dark transition-all duration-300 text-center shadow-lg hover:-translate-y-1">
+                    Hai uno spazio o una vetrina?
+                </a>
+            </div>
+        </div>
+        <div class="lg:w-2/5 flex justify-center lg:justify-end relative">
+            <!-- Il div esterno gestisce il movimento fluttuante Su/Giù -->
+            <div class="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float">
+                <!-- L'immagine interna gestisce l'effetto lampadina che pulsa -->
+                <img src="../png/Logo formato solo arco Piccolo.png" alt="Logo Arco Plutone" class="w-full h-auto animate-accensione">
+            </div>
+        </div>
+    </section>
+
+    <!-- I NOSTRI SPAZI LE TUE IDEE -->
+    <section class="bg-plutone-gray py-20 border-t border-b border-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-4">I Nostri Spazi, Le Tue Idee</h2>
+            <p class="text-gray-300 mb-12 max-w-2xl mx-auto">Scopri come diverse realtà danno vita ai loro progetti con Plutone.</p>
+            
+            <!-- Modificata la griglia da 3 colonne (lg:grid-cols-3) a 2 colonne (md:grid-cols-2) come da PDF -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                
+                <!-- Card 1 -->
+                <div class="bg-plutone-dark rounded-xl border border-gray-800 overflow-hidden shadow-xl group transition hover:border-plutone-light duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative bg-gray-900 shrink-0">
+                        <!-- Immagine con nome predisposto per foto realistica -->
+                        <img src="../png/home_page/ecommerce-beauty.jpeg" alt="E-commerce Beauty" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div>
+                            <span class="text-xs font-bold text-plutone-dark bg-plutone-light px-2 py-1 rounded uppercase tracking-wide">E-commerce Beauty</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-4 mb-2">Temporary Store</h3>
+                        <p class="text-sm text-gray-400 mt-auto">Un brand incontra la sua community.*</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-plutone-dark rounded-xl border border-gray-800 overflow-hidden shadow-xl group transition hover:border-plutone-light duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative bg-gray-900 shrink-0">
+                        <!-- Immagine con nome predisposto per foto realistica -->
+                        <img src="../png/home_page/Indipendeza_Espressiva.jpeg" alt="Mostra d'Artista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div>
+                            <span class="text-xs font-bold text-plutone-dark bg-plutone-light px-2 py-1 rounded uppercase tracking-wide">Artista</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-4 mb-2">Esposizione</h3>
+                        <p class="text-sm text-gray-400 mt-auto">Un'esposizione nel centro della città.*</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-plutone-dark rounded-xl border border-gray-800 overflow-hidden shadow-xl group transition hover:border-plutone-light duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative bg-gray-900 shrink-0">
+                        <!-- Immagine con nome predisposto per foto realistica -->
+                        <img src="../png/home_page/Artigiano.jpeg" alt="Artigianato su commessa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div>
+                            <span class="text-xs font-bold text-plutone-dark bg-plutone-light px-2 py-1 rounded uppercase tracking-wide">Artigiano</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-4 mb-2">Il Laboratorio</h3>
+                        <p class="text-sm text-gray-400 mt-auto">Coinvolgi il pubblico con attività interattive o mostra il tuo processo produttivo e creativo dal vivo.*</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-plutone-dark rounded-xl border border-gray-800 overflow-hidden shadow-xl group transition hover:border-plutone-light duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative bg-gray-900 shrink-0">
+                        <!-- Immagine con nome predisposto per foto realistica -->
+                        <img src="../png/home_page/Startup.jpeg" alt="Eventi personalizzati" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div>
+                            <span class="text-xs font-bold text-plutone-dark bg-plutone-light px-2 py-1 rounded uppercase tracking-wide">Startup</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-4 mb-2">Eventi Personalizzati</h3>
+                        <p class="text-sm text-gray-400 mt-auto">Vuoi realizzare un evento particolare? Realizzalo con noi!*</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CHI C'È DIETRO PLUTONE / TEAM -->
+    <section class="container mx-auto px-6 py-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 bg-plutone-gray rounded-2xl aspect-video flex items-center justify-center border border-gray-700 relative overflow-hidden group">
+                <img src="../png/plutone_presentazione.jpg" alt="Copertina Video Presentazione Team" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="bg-plutone-light text-plutone-dark p-4 rounded-full shadow-lg transform group-hover:scale-110 transition-transform cursor-pointer">
+                        <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"></path></svg>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="order-1 lg:order-2">
+                <h2 class="text-4xl font-bold mb-6 text-glow">Chi c'è dietro Plutone</h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    Siamo <strong>Corrado Cultrera, Giorgia Del Fabbro e Davide Palù</strong>. Crediamo che ogni serranda abbassata sia un'opportunità sprecata per il territorio.
+                </p>
+                <p class="text-lg text-gray-300 mb-6">
+                    Abbiamo creato Plutone per risolvere due grandi problemi: il vuoto dei negozi sfitti e la difficoltà di trovare spazi fisici accessibili. Una soluzione unica pensata per dare valore alla città, supportando sia chi cerca un luogo per le proprie idee, sia chi desidera valorizzare il proprio immobile.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULO CONTATTI -->
+    <section id="contatti" class="bg-plutone-dark border-t border-gray-800 py-20 text-center">
+        <div class="container mx-auto px-6 max-w-xl text-left">
+            <h2 class="text-4xl font-bold mb-4 text-glow text-center">Contattaci</h2>
+            <p class="text-gray-400 mb-8 text-lg text-center">Compila il modulo per avere ulteriori informazioni. <br/> Saremo felici di aiutarti.</p>
+            
+            <form class="flex flex-col gap-5 mb-8">
+                <input type="text" placeholder="Il tuo nome / Azienda" class="w-full px-4 py-4 rounded bg-plutone-gray border border-gray-700 text-white focus:outline-none focus:border-plutone-light transition-colors" required>
+                <input type="email" placeholder="La tua email" class="w-full px-4 py-4 rounded bg-plutone-gray border border-gray-700 text-white focus:outline-none focus:border-plutone-light transition-colors" required>
+                <select class="w-full px-4 py-4 rounded bg-plutone-gray border border-gray-700 text-white focus:outline-none focus:border-plutone-light transition-colors" required>
+                    <option class="text-gray-400" value="" disabled selected >Motivo del contatto:</option>
+                    <option value="cerco_spazio">Cerco uno spazio o una vetrina (Attività/Brand)</option>
+                    <option value="ho_spazio">Ho uno spazio sfitto da proporre (Proprietario)</option>
+                    <option value="informazioni">Informazioni Generali / Altro</option>
+                </select>
+                <textarea placeholder="Scrivi qui il tuo messaggio..." rows="4" class="w-full px-4 py-4 rounded bg-plutone-gray border border-gray-700 text-white focus:outline-none focus:border-plutone-light transition-colors" required></textarea>
+                
+                <!-- Privacy & Newsletter Checkbox -->
+                <div class="bg-[#0B1B32] p-4 rounded border border-gray-700">
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" checked class="mt-1 w-5 h-5 accent-plutone-light rounded bg-plutone-gray border-gray-600 focus:ring-plutone-light">
+                        <span class="text-sm text-gray-300 leading-tight">
+                            Desidero iscrivermi alla newsletter per restare aggiornato sulle novità di Plutone. 
+                            <br><span class="text-xs text-gray-500 mt-1 block">I tuoi dati verranno utilizzati esclusivamente per elaborare questa richiesta e gestire la comunicazione, nel pieno rispetto della Privacy Policy.</span>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="bg-plutone-light text-plutone-dark font-extrabold text-lg py-4 rounded hover:bg-plutone-accent transition shadow-lg mt-2">
+                    Invia Richiesta
+                </button>
+            </form>
+        </div>
+    </section>
+
+<!-- FOOTER COMPLETAMENTE RIVISITATO -->
+    <footer class="bg-[#050d1a] pt-16 pb-8 border-t border-gray-900 text-sm text-gray-400">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12 border-b border-gray-800 pb-12">
+            
+            <!-- Colonna 1: Brand -->
+            <div class="lg:col-span-1">
+                <img src="../png/Logo Plutone.png" alt="Plutone Logo Footer" class="h-16 mb-6 opacity-90">
+                <p class="text-gray-400 mb-4 pr-2">La piattaforma intelligente che trasforma i locali sfitti in spazi vivi per brand, artisti e artigiani.</p>
+            </div>
+
+            <!-- Colonna 2: Contatti Fisici -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">Contatti</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="mt-0.5">📍</span> 
+                        <span class="leading-tight">Via Montello, 7A<br>31100 Treviso (TV)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span>✉️</span> <a href="mailto:plutone.treviso@gmail.com" class="hover:text-plutone-light transition font-semibold text-white break-all">plutone.treviso@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Colonna 3: Social & Info Separate -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">I nostri Social</h4>
+                <ul class="space-y-3 mb-6">
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2 ">📸 Instagram</a></li>
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2">📘 Facebook</a></li>
+                    <li><a href="#" class="text-plutone-light font-bold hover:text-plutone-accent transition flex items-center gap-2">💼 LinkedIn</a></li>
+                </ul>
+
+                <h4 class="text-white font-bold text-lg mb-3">Info Legali</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonna 4: Partner (MODIFICATA) -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">I Nostri Partner</h4>
+                <!-- Modificato 'block' in 'inline-block' per far sì che il box si adatti alla larghezza dell'immagine -->
+                <a href="#" class="inline-block hover:opacity-75 transition bg-white/5 p-4 rounded-lg border border-gray-700">
+                    <img src="../png/HEADER-02.webp" alt="Logo Ground Control" class="h-10 w-auto object-contain">
+                </a>
+            </div>
+
+            <!-- Colonna 5: Newsletter Rapida -->
+            <div class="lg:col-span-1">
+                <h4 class="text-white font-bold text-lg mb-4">Newsletter</h4>
+                <p class="mb-4 text-xs">Rimani aggiornato sui nuovi spazi disponibili e sulle iniziative a Treviso.</p>
+                <form class="flex flex-col gap-3">
+                    <input type="hidden" name="form_type" value="newsletter_generica">
+                    <input type="email" placeholder="Il tuo indirizzo email" class="w-full px-4 py-3 rounded bg-plutone-dark border border-gray-700 text-white focus:outline-none focus:border-plutone-light" required>
+                    <button type="submit" class="w-full bg-gray-700 text-white font-bold py-3 rounded hover:bg-plutone-light hover:text-plutone-dark transition">Iscriviti</button>
+                </form>
+            </div>
+
+        </div>
+        
+        <div class="container mx-auto px-6 text-center text-xs text-gray-500 space-y-2">
+            <!-- Asterisco aggiunto -->
+            <p>* Foto generate con l'IA.</p>
+            <p>&copy; 2026 Plutone - Riaccendiamo le vetrine. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
