@@ -87,6 +87,7 @@
       <p>Compila il modulo per avere ulteriori informazioni. Saremo felici di aiutarti.</p>
       <p class="faq-link">Hai qualche dubbio? <a href="faq.html">Consulta le nostre FAQ</a>.</p>
       <form class="js-mail" data-subject="Richiesta informazioni" novalidate>
+        <input type="text" name="sito_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
         <div class="field-row">
           <div class="field"><label for="h-nome">Il tuo nome / Azienda*</label><input id="h-nome" required autocomplete="name" data-label="Nome / Azienda" data-subject><div class="err">Inserisci il tuo nome o quello dell'azienda.</div></div>
           <div class="field"><label for="h-email">La tua email*</label><input id="h-email" type="email" required autocomplete="email" data-label="E-mail"><div class="err">Inserisci un indirizzo e-mail valido.</div></div>
@@ -121,8 +122,8 @@
     <div>
       <h4>Contatti</h4>
       <ul>
-        <li>Via Montello, 7A<br>31100 Treviso (TV)</li>
-        <li><a href="mailto:plutone.treviso@gmail.com">plutone.treviso@gmail.com</a></li>
+        <li data-setting="indirizzo">Via Montello, 7A<br>31100 Treviso (TV)</li>
+        <li><a href="mailto:plutone.treviso@gmail.com" data-setting="email">plutone.treviso@gmail.com</a></li>
       </ul>
       <h4>Pagine</h4>
       <ul>
@@ -135,9 +136,9 @@
     <div>
       <h4>I nostri Social</h4>
       <ul>
-        <li><a href="https://www.instagram.com/plutone.treviso/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="#" aria-disabled="true">Facebook</a></li>
-        <li><a href="#" aria-disabled="true">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/plutone.treviso/" target="_blank" rel="noopener" data-setting="instagram">Instagram</a></li>
+        <li><a href="#" aria-disabled="true" target="_blank" rel="noopener" data-setting="facebook">Facebook</a></li>
+        <li><a href="#" aria-disabled="true" target="_blank" rel="noopener" data-setting="linkedin">LinkedIn</a></li>
       </ul>
       <h4>Info Legali</h4>
       <ul>
@@ -147,12 +148,13 @@
     </div>
     <div>
       <h4>I Nostri Partner</h4>
-      <a class="partner" href="#" aria-label="Ground Control Coworking"><img src="assets/img/HEADER-02.webp" alt="Logo Ground Control Coworking"></a>
+      <a class="partner" href="#" target="_blank" rel="noopener" aria-label="Ground Control Coworking" data-setting="partner"><img src="assets/img/HEADER-02.webp" alt="Logo Ground Control Coworking"></a>
     </div>
     <div class="foot-news">
       <h4>Newsletter</h4>
       <p>Rimani aggiornato sui nuovi spazi disponibili e sulle iniziative a Treviso.</p>
       <form class="js-mail" data-subject="Iscrizione newsletter" novalidate>
+        <input type="text" name="sito_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
         <div class="field"><label class="sr" for="fn-email" style="position:absolute;left:-9999px">E-mail</label><input id="fn-email" type="email" placeholder="Il tuo indirizzo email" required data-label="E-mail" data-subject></div>
         <button class="btn btn-giallo" type="submit">Iscriviti</button>
       </form>

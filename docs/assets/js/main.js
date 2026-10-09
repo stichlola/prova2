@@ -115,6 +115,54 @@
     });
   }
 
+  var contactEmail = "plutone.treviso@gmail.com";
+
+  // Impostazioni dal pannello admin (solo se il sito gira con il server)
+  fetch("api/impostazioni").then(function (r) { return r.ok ? r.json() : null; }).then(function (s) {
+    if (!s) return;
+    if (s.email) contactEmail = s.email;
+    document.querySelectorAll("[data-setting]").forEach(function (el) {
+      var k = el.getAttribute("data-setting"), v = s[k];
+      if (k === "email") { el.textContent = v; el.href = "mailto:" + v; }
+      else if (k === "indirizzo") {
+        el.textContent = "";
+        String(v || "").split("\n").forEach(function (line, i) { if (i) el.appendChild(document.createElement("br")); el.appendChild(document.createTextNode(line)); });
+      } else if (v) { el.href = v; el.removeAttribute("aria-disabled"); el.closest("li, .partner-wrap") && (el.closest("li, .partner-wrap").hidden = false); }
+      else if (el.closest("li")) el.closest("li").hidden = true;
+    });
+  }).catch(function () {});
+
+  // Locali disponibili dal pannello admin
+  var localiBox = document.querySelector("[data-locali]");
+  if (localiBox) {
+    fetch("api/locali").then(function (r) { return r.ok ? r.json() : null; }).then(function (list) {
+      if (!list) return;
+      var pin = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>';
+      function card(l) {
+        var a = document.createElement("article"); a.className = "space in reveal";
+        var ph = document.createElement("div"); ph.className = "ph"; ph.setAttribute("data-label", l.nome);
+        if (l.foto) { var im = document.createElement("img"); im.src = l.foto; im.alt = l.nome; im.loading = "lazy"; im.onerror = function () { im.remove(); }; ph.appendChild(im); }
+        var body = document.createElement("div"); body.className = "body";
+        var h4 = document.createElement("h4"); h4.textContent = l.nome;
+        var w = document.createElement("div"); w.className = "where"; w.innerHTML = pin;
+        var ws = document.createElement("span"); ws.textContent = l.indirizzo + (l.mq ? " (" + l.mq + " mq)" : ""); w.appendChild(ws);
+        var p = document.createElement("p"); p.textContent = l.descrizione;
+        if (l.ai) { var sup = document.createElement("sup"); sup.className = "ai"; sup.textContent = "*"; p.appendChild(sup); }
+        var b = document.createElement("a"); b.className = "btn btn-navy"; b.href = "#contatti"; b.textContent = "Vedi Dettagli";
+        b.setAttribute("data-spazio", l.nome); b.setAttribute("data-formato", l.tipo); bindDettagli(b);
+        [h4, w, p, b].forEach(function (x) { body.appendChild(x); });
+        a.appendChild(ph); a.appendChild(body); return a;
+      }
+      [["spazio", "sezione-spazi"], ["vetrina", "sezione-vetrine"]].forEach(function (g) {
+        var sec = document.getElementById(g[1]); if (!sec) return;
+        var grid = sec.querySelector(".spaces"), items = list.filter(function (l) { return l.tipo === g[0]; });
+        grid.textContent = "";
+        items.forEach(function (l) { grid.appendChild(card(l)); });
+        sec.hidden = !items.length;
+      });
+    }).catch(function () {});
+  }
+
   // Forms: validation + invio via e-mail (mailto)
   document.querySelectorAll("form.js-mail").forEach(function (form) {
     function validate(field) {
@@ -135,18 +183,41 @@
       var ok = true;
       fields.forEach(function (f) { if (!validate(f)) ok = false; });
       if (!ok) { var first = form.querySelector(".invalid input, .invalid textarea, .invalid select"); if (first) first.focus(); return; }
-      var lines = [];
+      var campi = {}, lines = [];
       form.querySelectorAll("[data-label]").forEach(function (el) {
         var v = el.type === "checkbox" ? (el.checked ? "Sì" : "No") : el.value;
         if (el.tagName === "SELECT" && el.selectedIndex > 0) v = el.options[el.selectedIndex].text;
-        if (v) lines.push(el.getAttribute("data-label") + ": " + v);
+        if (v) { campi[el.getAttribute("data-label")] = v; lines.push(el.getAttribute("data-label") + ": " + v); }
       });
-      var who = form.querySelector("[data-subject]");
-      var subject = "[Plutone] " + form.getAttribute("data-subject") + (who && who.value ? " - " + who.value : "");
-      window.location.href = "mailto:plutone.treviso@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
-      form.hidden = true;
-      var done = form.parentNode.querySelector(".form-done");
-      if (done) done.classList.add("show");
+      var tipo = form.getAttribute("data-subject");
+      var trap = form.querySelector("[name=sito_web]");
+      var btn = form.querySelector("[type=submit]");
+      function done(viaServer) {
+        form.hidden = true;
+        var box = form.parentNode.querySelector(".form-done");
+        if (!box) return;
+        if (viaServer) {
+          var msg = box.querySelector("[data-server-msg]") || box.querySelector("p:last-child");
+          if (msg) msg.textContent = /newsletter/i.test(tipo) ? "Iscrizione registrata: riceverai le prossime novità di Plutone." : "Messaggio inviato! Ti risponderemo al più presto.";
+        }
+        box.classList.add("show");
+      }
+      function viaMail() {
+        var who = form.querySelector("[data-subject]");
+        var subject = "[Plutone] " + tipo + (who && who.value ? " - " + who.value : "");
+        window.location.href = "mailto:" + contactEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+        done(false);
+      }
+      if (btn) btn.disabled = true;
+      // Con il server attivo i messaggi arrivano nel pannello admin; su hosting statico si usa l'e-mail.
+      fetch("api/messaggi", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tipo: tipo, campi: campi, sito_web: trap ? trap.value : "" }) })
+        .then(function (r) {
+          if (r.ok) return done(true);
+          if (r.status === 404 || r.status === 405) return viaMail();
+          return r.json().then(function (d) { alert(d.error || "Invio non riuscito, riprova."); });
+        })
+        .catch(viaMail)
+        .finally(function () { if (btn) btn.disabled = false; });
     });
   });
 
@@ -158,14 +229,15 @@
   });
 
   // "Vedi Dettagli": porta al modulo con il locale già indicato
-  document.querySelectorAll("[data-spazio]").forEach(function (a) {
+  function bindDettagli(a) {
     a.addEventListener("click", function () {
       var hidden = document.getElementById("c-spazio"), sel = document.getElementById("c-formato"), msg = document.getElementById("c-msg");
       if (hidden) hidden.value = a.getAttribute("data-spazio");
       if (sel) sel.value = a.getAttribute("data-formato");
       if (msg && !msg.value) msg.value = "Vorrei maggiori dettagli su: " + a.getAttribute("data-spazio") + ".";
     });
-  });
+  }
+  document.querySelectorAll("[data-spazio]").forEach(bindDettagli);
 
   // Year
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });

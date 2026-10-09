@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pannello Plutone</title>
+<link rel="icon" href="/assets/img/logo-arco.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Marcellus&family=Open+Sans:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="admin">
+
+<!-- LOGIN -->
+<section id="login" class="login" hidden>
+  <form class="form-card" id="login-form" novalidate>
+    <div class="head"><img src="/assets/img/logo-arco.svg" alt="" class="login-logo"><h2>Pannello Plutone</h2></div>
+    <p id="login-msg">Inserisci la password di amministrazione.</p>
+    <div class="field"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required></div>
+    <p class="a-error" id="login-err" role="alert"></p>
+    <button class="btn btn-navy" type="submit">Entra</button>
+    <p class="a-small"><a href="/">&larr; Torna al sito</a></p>
+  </form>
+</section>
+
+<!-- PANNELLO -->
+<div id="app" hidden>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/" target="_blank" rel="noopener"><img src="/assets/img/logo-arco.svg" alt=""><span>PLUTONE</span><em class="a-badge">admin</em></a>
+      <nav aria-label="Sezioni"><ul class="menu a-tabs" role="tablist">
+        <li><a href="#messaggi" data-tab="messaggi">Messaggi <b class="a-count" id="count-new" hidden></b></a></li>
+        <li><a href="#locali" data-tab="locali">Locali</a></li>
+        <li><a href="#newsletter" data-tab="newsletter">Newsletter</a></li>
+        <li><a href="#impostazioni" data-tab="impostazioni">Impostazioni</a></li>
+        <li><a href="#" id="logout">Esci</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main class="container a-main">
+    <div class="a-toast" id="toast" role="status" hidden></div>
+
+    <!-- Messaggi -->
+    <section data-panel="messaggi" hidden>
+      <div class="a-head">
+        <div><p class="eyebrow">Richieste dai moduli del sito</p><h1>Messaggi</h1></div>
+        <div class="filters" id="msg-filter" role="group" aria-label="Filtra">
+          <button type="button" data-f="tutti" aria-pressed="true">Tutti</button>
+          <button type="button" data-f="nuovi" aria-pressed="false">Da leggere</button>
+          <button type="button" data-f="spazio" aria-pressed="false">Spazi</button>
+          <button type="button" data-f="immobile" aria-pressed="false">Immobili</button>
+          <button type="button" data-f="newsletter" aria-pressed="false">Newsletter</button>
+        </div>
+      </div>
+      <div id="msg-list" class="a-list"></div>
+    </section>
+
+    <!-- Locali -->
+    <section data-panel="locali" hidden>
+      <div class="a-head">
+        <div><p class="eyebrow">Pagina "Apri uno Spazio"</p><h1>Locali disponibili</h1></div>
+        <button class="btn btn-giallo" id="new-locale" type="button">+ Aggiungi locale</button>
+      </div>
+      <div id="locali-list" class="a-grid"></div>
+
+      <dialog id="locale-dialog" class="a-dialog">
+        <form id="locale-form" class="form-card" method="dialog" novalidate>
+          <h2 id="locale-title">Nuovo locale</h2>
+          <div class="field-row">
+            <div class="field"><label for="l-nome">Nome*</label><input id="l-nome" name="nome" required maxlength="120"></div>
+            <div class="field"><label for="l-tipo">Tipo*</label><select id="l-tipo" name="tipo"><option value="spazio">Spazio Commerciale</option><option value="vetrina">Vetrina Espositiva</option></select></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="l-ind">Indirizzo</label><input id="l-ind" name="indirizzo" maxlength="160" placeholder="es. Via Calmaggiore, Treviso"></div>
+            <div class="field"><label for="l-mq">Superficie (mq)</label><input id="l-mq" name="mq" maxlength="20" inputmode="numeric"></div>
+          </div>
+          <div class="field"><label for="l-desc">Descrizione</label><textarea id="l-desc" name="descrizione" maxlength="600"></textarea></div>
+          <div class="field"><label for="l-foto">Foto (JPG, PNG o WebP, max 5 MB)</label>
+            <div class="a-photo"><img id="l-preview" alt="" hidden><input id="l-foto" type="file" accept="image/jpeg,image/png,image/webp"></div>
+            <input type="hidden" name="foto" id="l-foto-path">
+          </div>
+          <label class="check"><input type="checkbox" name="ai" id="l-ai"> <span>Foto generata con l'IA (mostra l'asterisco)</span></label>
+          <label class="check"><input type="checkbox" name="visibile" id="l-vis" checked> <span>Visibile sul sito</span></label>
+          <p class="a-error" id="locale-err" role="alert"></p>
+          <div class="btn-row"><button class="btn btn-navy" type="submit" value="save">Salva</button><button class="btn a-btn-ghost" type="button" id="locale-cancel">Annulla</button></div>
+        </form>
+      </dialog>
+    </section>
+
+    <!-- Newsletter -->
+    <section data-panel="newsletter" hidden>
+      <div class="a-head">
+        <div><p class="eyebrow">Iscritti dai moduli del sito</p><h1>Newsletter</h1></div>
+        <a class="btn btn-giallo" href="/api/admin/newsletter.csv" download>Scarica CSV</a>
+      </div>
+      <p class="a-small">Il CSV si apre con Excel e si importa in Mailchimp, Brevo o servizi simili.</p>
+      <div class="a-table-wrap"><table class="a-table"><thead><tr><th>E-mail</th><th>Nome</th><th>Data</th><th>Da</th></tr></thead><tbody id="news-list"></tbody></table></div>
+    </section>
+
+    <!-- Impostazioni -->
+    <section data-panel="impostazioni" hidden>
+      <div class="a-head"><div><p class="eyebrow">Footer e contatti di tutte le pagine</p><h1>Impostazioni</h1></div></div>
+      <form id="settings-form" class="form-card a-settings" novalidate>
+        <div class="field"><label for="s-email">E-mail di contatto*</label><input id="s-email" name="email" type="email" required></div>
+        <div class="field"><label for="s-ind">Indirizzo</label><textarea id="s-ind" name="indirizzo" rows="2" style="min-height:70px"></textarea></div>
+        <div class="field-row">
+          <div class="field"><label for="s-ig">Instagram</label><input id="s-ig" name="instagram" type="url" placeholder="https://"></div>
+          <div class="field"><label for="s-fb">Facebook</label><input id="s-fb" name="facebook" type="url" placeholder="https://"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="s-li">LinkedIn</label><input id="s-li" name="linkedin" type="url" placeholder="https://"></div>
+          <div class="field"><label for="s-pa">Sito del partner (Ground Control)</label><input id="s-pa" name="partner" type="url" placeholder="https://"></div>
+        </div>
+        <p class="a-error" id="settings-err" role="alert"></p>
+        <button class="btn btn-navy" type="submit">Salva impostazioni</button>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="/admin/admin.js"></script>
+</body>
+</html>
