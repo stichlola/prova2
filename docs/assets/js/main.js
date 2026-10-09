@@ -115,56 +115,57 @@
     });
   }
 
-  // Contact form: tabs + validation + mailto
-  var form = document.getElementById("contact-form");
-  if (form) {
-    var tabs = document.querySelectorAll(".tabs button");
-    var tipo = form.querySelector("[name=tipo]");
-    var extra = form.querySelectorAll("[data-for]");
-    function setTab(t) {
-      tabs.forEach(function (b) { b.setAttribute("aria-selected", String(b === t)); });
-      tipo.value = t.getAttribute("data-tipo");
-      extra.forEach(function (el) {
-        var on = el.getAttribute("data-for").split(" ").indexOf(tipo.value) !== -1;
-        el.hidden = !on;
-        el.querySelectorAll("input,textarea,select").forEach(function (i) { i.disabled = !on; });
-      });
-    }
-    tabs.forEach(function (t) { t.addEventListener("click", function () { setTab(t); }); });
-    var pre = new URLSearchParams(location.search).get("tipo");
-    var start = Array.prototype.find.call(tabs, function (t) { return t.getAttribute("data-tipo") === pre; }) || tabs[0];
-    setTab(start);
-
+  // Forms: validation + invio via e-mail (mailto)
+  document.querySelectorAll("form.js-mail").forEach(function (form) {
     function validate(field) {
       var input = field.querySelector("input,textarea,select");
-      if (!input || input.disabled) return true;
+      if (!input) return true;
       var ok = input.checkValidity();
       field.classList.toggle("invalid", !ok);
       return ok;
     }
-    form.querySelectorAll(".field").forEach(function (f) {
+    var fields = form.querySelectorAll(".field");
+    fields.forEach(function (f) {
       f.addEventListener("input", function () { if (f.classList.contains("invalid")) validate(f); });
+      f.addEventListener("change", function () { if (f.classList.contains("invalid")) validate(f); });
       f.addEventListener("focusout", function () { validate(f); });
     });
-
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var ok = true;
-      form.querySelectorAll(".field").forEach(function (f) { if (!validate(f)) ok = false; });
-      var privacy = form.querySelector("#privacy");
-      if (!privacy.checked) { ok = false; privacy.focus(); }
+      fields.forEach(function (f) { if (!validate(f)) ok = false; });
       if (!ok) { var first = form.querySelector(".invalid input, .invalid textarea, .invalid select"); if (first) first.focus(); return; }
-
-      var data = new FormData(form), lines = [];
-      var labels = { tipo: "Richiesta", nome: "Nome", azienda: "Azienda / Ente", email: "Email", telefono: "Telefono", progetto: "Nome progetto", periodo: "Periodo", indirizzo: "Indirizzo immobile", mq: "Superficie (mq)", messaggio: "Messaggio" };
-      data.forEach(function (v, k) { if (labels[k] && v) lines.push(labels[k] + ": " + v); });
-      var subject = "[Plutone] " + data.get("tipo") + " - " + data.get("nome");
+      var lines = [];
+      form.querySelectorAll("[data-label]").forEach(function (el) {
+        var v = el.type === "checkbox" ? (el.checked ? "Sì" : "No") : el.value;
+        if (el.tagName === "SELECT" && el.selectedIndex > 0) v = el.options[el.selectedIndex].text;
+        if (v) lines.push(el.getAttribute("data-label") + ": " + v);
+      });
+      var who = form.querySelector("[data-subject]");
+      var subject = "[Plutone] " + form.getAttribute("data-subject") + (who && who.value ? " - " + who.value : "");
       window.location.href = "mailto:plutone.treviso@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
       form.hidden = true;
-      document.querySelector(".tabs").hidden = true;
-      document.querySelector(".form-ok").classList.add("show");
+      var done = form.parentNode.querySelector(".form-done");
+      if (done) done.classList.add("show");
     });
-  }
+  });
+
+  // Preselezione da link (es. ?motivo=ho_spazio)
+  var params = new URLSearchParams(location.search);
+  params.forEach(function (v, k) {
+    var el = document.querySelector('form.js-mail select[name="' + k + '"]');
+    if (el) el.value = v;
+  });
+
+  // "Vedi Dettagli": porta al modulo con il locale già indicato
+  document.querySelectorAll("[data-spazio]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var hidden = document.getElementById("c-spazio"), sel = document.getElementById("c-formato"), msg = document.getElementById("c-msg");
+      if (hidden) hidden.value = a.getAttribute("data-spazio");
+      if (sel) sel.value = a.getAttribute("data-formato");
+      if (msg && !msg.value) msg.value = "Vorrei maggiori dettagli su: " + a.getAttribute("data-spazio") + ".";
+    });
+  });
 
   // Year
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
