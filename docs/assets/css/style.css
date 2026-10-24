@@ -281,7 +281,7 @@ section { padding: clamp(64px, 9vw, 110px) 0; }
 .team-section .section-title { margin-bottom: 70px; }
 .team-section .bg-arch { top: 40px; }
 .avatar.alt { background: radial-gradient(circle at 50% 38%, #fff 0%, #cfe2f8 38%, var(--navy-2) 39%, var(--navy) 100%); }
-.member:hover .avatar { transform: translateY(-6px) rotate(-3deg); }
+.member:hover .avatar { transform: none; }
 .avatar span { transform: translateY(-14px); }
 .member h3 { font-family: var(--f-head); font-weight: 700; letter-spacing: .1em; font-size: 22px; margin: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--grigio); display: inline-block; min-width: 220px; color: #000; }
 .team-section .member h3 { border-bottom: 0; padding-bottom: 0; min-width: 0; }
