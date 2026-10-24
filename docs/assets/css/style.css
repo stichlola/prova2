@@ -468,7 +468,7 @@ sup.ai { color: var(--azzurro); font-size: .7em; margin-left: 1px; }
 .benefit:hover, .benefit:focus { background: rgba(255,218,106,.1); border-color: var(--giallo); transform: translateY(-4px); box-shadow: 0 0 0 3px rgba(255,218,106,.3), 0 0 34px 6px rgba(255,218,106,.45); }
 .benefit .n { font-family: var(--f-display); color: var(--giallo); font-size: 18px; letter-spacing: .1em; }
 .benefit h3 { font-family: var(--f-display); font-weight: 400; color: var(--bianco); font-size: 26px; margin: 6px 0 10px; }
-.benefit p { margin: 0; color: #cfe0f4; font-size: 15.5px; }
+.benefit p { margin: 0; color: #cfe0f4; font-size: 15.5px; text-align: justify; hyphens: auto; }
 
 /* Vantaggi: box chiari su sfondo blu, si illuminano al passaggio/selezione */
 .benefits.light { grid-template-columns: repeat(6, 1fr); }
