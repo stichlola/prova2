@@ -205,6 +205,7 @@
       }
       function viaMail() {
         var who = form.querySelector("[data-subject]");
+        var intro = "Questa e-mail è stata generata automaticamente dalla compilazione del modulo sul sito di Plutone.\nPer completare la richiesta è sufficiente cliccare su Invia: non è necessario fare altro.\n\n---\n\n";
         var subject = "[Plutone] " + tipo + (who && who.value ? " - " + who.value : "");
         window.location.href = "mailto:" + contactEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(intro + lines.join("\n"));
         done(false);
