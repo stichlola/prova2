@@ -357,7 +357,7 @@ section { padding: clamp(64px, 9vw, 110px) 0; }
 .prose h2 { font-family: var(--f-head); text-transform: uppercase; letter-spacing: .06em; font-size: 20px; color: var(--navy-2); margin: 40px 0 10px; }
 .prose p, .prose li { color: var(--navy); }
 .prose ul { padding-left: 20px; }
-.prose-justify p { text-align: justify; hyphens: auto; }
+.prose p, .prose li, .faq details p { text-align: justify; hyphens: auto; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy); color: #fff; padding: 64px 0 0; }
