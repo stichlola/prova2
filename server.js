@@ -50,7 +50,7 @@ const DEFAULT_SETTINGS = {
   email: "plutone.treviso@gmail.com",
   indirizzo: "Via Montello, 7A\n31100 Treviso (TV)",
   instagram: "https://www.instagram.com/plutone.treviso/",
-  facebook: "https://www.facebook.com/profile.php?id=61590408391994",
+  facebook: "https://www.facebook.com/people/Plutone/61590408391994/",
   linkedin: "https://www.linkedin.com/company/plutonetreviso/",
   partner: "https://www.groundcontrolcoworking.com/",
 };
