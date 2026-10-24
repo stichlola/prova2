@@ -463,6 +463,20 @@ sup.ai { color: var(--azzurro); font-size: .7em; margin-left: 1px; }
 .benefit h3 { font-family: var(--f-display); font-weight: 400; color: var(--bianco); font-size: 26px; margin: 6px 0 10px; }
 .benefit p { margin: 0; color: #cfe0f4; font-size: 15.5px; }
 
+/* Vantaggi: box chiari su sfondo blu, si illuminano al passaggio/selezione */
+.benefits.light { grid-template-columns: repeat(6, 1fr); }
+.benefits.light .benefit { grid-column: span 2; background: var(--crema); border: 2px solid transparent; cursor: pointer; outline: none; transition: border-color .3s, transform .3s, box-shadow .3s, background .3s; }
+.benefits.light .benefit:nth-child(4) { grid-column: 2 / span 2; }
+.benefits.light .benefit:nth-child(5) { grid-column: 4 / span 2; }
+.benefits.light .benefit .n { color: var(--azzurro); }
+.benefits.light .benefit h3 { color: var(--navy); }
+.benefits.light .benefit p { color: var(--grigio); }
+.benefits.light .benefit:hover, .benefits.light .benefit:focus { background: var(--giallo-chiaro); border-color: var(--giallo); transform: translateY(-4px); box-shadow: 0 0 0 4px rgba(255,218,106,.35), 0 0 34px 6px rgba(255,218,106,.55); }
+@media (max-width: 880px) {
+  .benefits.light { grid-template-columns: 1fr; }
+  .benefits.light .benefit, .benefits.light .benefit:nth-child(4), .benefits.light .benefit:nth-child(5) { grid-column: auto; }
+}
+
 /* Locali disponibili */
 .spaces-group { margin-top: 44px; }
 .spaces-group h3 { font-family: var(--f-head); text-transform: uppercase; letter-spacing: .1em; font-size: 18px; color: var(--navy-2); margin: 0 0 20px; display: flex; align-items: center; gap: 14px; }
