@@ -51,7 +51,7 @@ const DEFAULT_SETTINGS = {
   indirizzo: "Via Montello, 7A\n31100 Treviso (TV)",
   instagram: "https://www.instagram.com/plutone.treviso/",
   facebook: "https://www.facebook.com/people/Plutone/61590408391994/",
-  linkedin: "https://www.linkedin.com/company/plutonetreviso/",
+  linkedin: "https://www.linkedin.com/company/plutonetreviso/about",
   partner: "https://www.groundcontrolcoworking.com/",
 };
 const settings = () => ({ ...DEFAULT_SETTINGS, ...readJson("impostazioni.json", {}) });
