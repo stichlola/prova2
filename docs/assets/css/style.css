@@ -578,7 +578,8 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
   display: block; width: 200px; height: 200px; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
   border: 3px solid var(--navy); background: var(--ghiaccio); position: relative;
 }
-.team-section .avatar.photo img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; border-radius: 50%; }
+.team-section .avatar.photo img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; border-radius: 50%; filter: grayscale(100%); transition: filter .4s ease; }
+.team-section .member:hover .avatar.photo img { filter: grayscale(0); }
 .team-section .member h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: .06em; font-size: 28px; }
 
 /* luce della lanterna: si accende e si abbassa */
