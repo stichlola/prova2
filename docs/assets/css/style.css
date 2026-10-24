@@ -596,6 +596,17 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
   box-shadow: 0 0 0 3px rgba(255,218,106,.3), 0 0 22px 4px rgba(255,218,106,.55);
 }
 
+/* home (computer): l'arco ha la stessa altezza del blocco di testo a sinistra, dal titolo ai pulsanti */
+@media (min-width: 881px) {
+  .hero .container { align-items: stretch; }
+  .hero .container > div:first-child { align-self: center; }
+  .hero .hero-logo {
+    align-self: stretch; justify-self: end; width: auto; aspect-ratio: 1;
+    transform: scale(1.35); transform-origin: center;
+  }
+  .hero .hero-logo img { position: absolute; inset: 0; width: 100%; height: 100%; }
+}
+
 /* luce della lanterna: si accende e si abbassa */
 .hero-logo { isolation: isolate; }
 .hero-logo img { position: relative; z-index: 1; }
