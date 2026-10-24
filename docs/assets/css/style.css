@@ -552,3 +552,19 @@ sup.ai { color: var(--azzurro); font-size: .7em; margin-left: 1px; }
   .foot-grid.v2 { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) { .spaces, .foot-grid.v2 { grid-template-columns: 1fr; } }
+
+/* Logo arco: il suo sfondo si fonde con il blu del sito (nessun quadrato visibile) */
+img[src$="logo.webp"], .hero-logo img {
+  background: transparent;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent), linear-gradient(0deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent), linear-gradient(0deg, transparent, #000 7%, #000 93%, transparent);
+  mask-composite: intersect;
+}
+.hero-logo { mix-blend-mode: lighten; }
+img[src$="logo.webp"] { mix-blend-mode: lighten; }
+/* animazione della luce senza aloni quadrati: solo il logo si accende e si abbassa */
+@keyframes accensione {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(.75); }
+}
