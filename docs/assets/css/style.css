@@ -564,6 +564,17 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
 /* il logo grande resta fermo (non fluttua) e non cambia luminosità */
 .hero-logo { animation: none; }
 .hero-logo img { animation: none; filter: none; }
+/* team: arco fino in fondo alla sezione, testi sopra l'arco, foto dentro i cerchi, nomi col font di Plutone */
+.team-section { padding-bottom: 0; }
+.team-section .bg-arch { top: 40px; bottom: 0; height: calc(100% - 40px); }
+.team-section > .container { position: relative; z-index: 1; padding-bottom: clamp(64px, 9vw, 110px); }
+.team-section .avatar.photo {
+  display: block; width: 200px; height: 200px; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  border: 3px solid var(--navy); background: var(--ghiaccio); position: relative;
+}
+.team-section .avatar.photo img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; border-radius: 50%; }
+.team-section .member h3 { font-family: var(--f-display); font-weight: 400; letter-spacing: .06em; font-size: 28px; }
+
 /* luce della lanterna: si accende e si abbassa */
 .hero-logo { isolation: isolate; }
 .hero-logo img { position: relative; z-index: 1; }
