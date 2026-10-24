@@ -466,7 +466,7 @@ sup.ai { color: var(--azzurro); font-size: .7em; margin-left: 1px; }
 
 /* Vantaggi: box chiari su sfondo blu, si illuminano al passaggio/selezione */
 .benefits.light { grid-template-columns: repeat(6, 1fr); }
-.benefits.light .benefit { grid-column: span 2; background: var(--crema); border: 2px solid transparent; cursor: pointer; outline: none; transition: border-color .3s, transform .3s, box-shadow .3s, background .3s; }
+.benefits.light .benefit { grid-column: span 2; }
 .benefits.light .benefit:nth-child(4) { grid-column: 2 / span 2; }
 .benefits.light .benefit:nth-child(5) { grid-column: 4 / span 2; }
 .benefits.light .benefit .n { color: var(--azzurro); }
