@@ -206,7 +206,7 @@
       function viaMail() {
         var who = form.querySelector("[data-subject]");
         var subject = "[Plutone] " + tipo + (who && who.value ? " - " + who.value : "");
-        window.location.href = "mailto:" + contactEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+        window.location.href = "mailto:" + contactEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(intro + lines.join("\n"));
         done(false);
       }
       if (btn) btn.disabled = true;
