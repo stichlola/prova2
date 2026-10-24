@@ -1,0 +1,35 @@
+[
+  {
+    "id": "boutique-calmaggiore",
+    "nome": "Boutique Calmaggiore",
+    "tipo": "spazio",
+    "indirizzo": "Via Calmaggiore, Treviso",
+    "mq": "60",
+    "descrizione": "Spazio luminoso ideale per abbigliamento, cosmesi e pop-up di lancio. Ottimo passaggio pedonale.",
+    "foto": "assets/img/clienti_page/Boutique_Calmaggiore.png",
+    "ai": true,
+    "visibile": true
+  },
+  {
+    "id": "galleria-san-leonardo",
+    "nome": "Galleria San Leonardo",
+    "tipo": "spazio",
+    "indirizzo": "Piazza S. Leonardo, Treviso",
+    "mq": "85",
+    "descrizione": "Ampio locale con doppie vetrine, ideale per mostre d'arte, showroom B2B ed eventi speciali.",
+    "foto": "assets/img/clienti_page/Galleria_SanLeonardo.png",
+    "ai": true,
+    "visibile": true
+  },
+  {
+    "id": "vetrina-pescheria",
+    "nome": "Vetrina Zona Pescheria",
+    "tipo": "vetrina",
+    "indirizzo": "Isola della Pescheria, Treviso",
+    "mq": "",
+    "descrizione": "Posizione strategica serale e diurna. Perfetta per esposizioni di design, artigianato o pubblicità.",
+    "foto": "assets/img/clienti_page/Vetrina_Pescheria.png",
+    "ai": true,
+    "visibile": true
+  }
+]

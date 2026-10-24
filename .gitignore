@@ -1,0 +1,8 @@
+node_modules/
+.env
+data/messaggi.json
+*.tmp
+
+# Dati di prova creati da un avvio locale
+data/impostazioni.json
+data/uploads/
