@@ -128,7 +128,8 @@
         el.textContent = "";
         String(v || "").split("\n").forEach(function (line, i) { if (i) el.appendChild(document.createElement("br")); el.appendChild(document.createTextNode(line)); });
       } else if (v) { el.href = v; el.removeAttribute("aria-disabled"); el.closest("li, .partner-wrap") && (el.closest("li, .partner-wrap").hidden = false); }
-      else if (el.closest("li")) el.closest("li").hidden = true;
+      // se l'impostazione è vuota resta il link già scritto nella pagina; si nasconde solo se il link manca
+      else if (el.closest("li") && (!el.getAttribute("href") || el.getAttribute("href") === "#")) el.closest("li").hidden = true;
     });
   }).catch(function () {});
 
