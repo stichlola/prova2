@@ -565,10 +565,12 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
 .hero-logo { animation: none; }
 .hero-logo img { animation: none; filter: none; }
 /* luce della lanterna: si accende e si abbassa */
+.hero-logo { isolation: isolate; }
+.hero-logo img { position: relative; z-index: 1; }
 .hero-logo::after {
-  content: ""; position: absolute; left: 47.9%; top: 40.5%; width: 16%; aspect-ratio: 1;
+  content: ""; position: absolute; z-index: 0; left: 48.8%; top: 40.5%; width: 52%; aspect-ratio: 1;
   transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
-  background: radial-gradient(circle, #fff6c9 0%, rgba(255,218,106,.85) 25%, rgba(255,218,106,.35) 50%, rgba(255,218,106,0) 70%);
+  background: radial-gradient(circle, #fff6c9 0%, rgba(255,226,130,.95) 14%, rgba(255,218,106,.6) 32%, rgba(255,218,106,.22) 52%, rgba(255,218,106,0) 70%);
   animation: lanterna 3s ease-in-out infinite;
 }
 @keyframes lanterna {
