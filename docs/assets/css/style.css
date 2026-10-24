@@ -568,8 +568,8 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
 .team-section { padding-bottom: 0; }
 .team-section .bg-arch {
   top: auto; bottom: 0; left: 50%;
-  /* si vedono solo i 4/6 centrali: 1/6 tagliato sopra, 1/6 sotto */
-  transform: translate(-50%, 22%); clip-path: inset(22% 0 22% 0);
+  /* taglio 28% sopra e 28% sotto: si vede il 44% centrale */
+  transform: translate(-50%, 28%); clip-path: inset(28% 0 28% 0);
   width: min(1100px, 150%); max-width: none; height: auto; opacity: 1;
   filter: brightness(0) invert(.9); /* linee bianche del logo rese grigio chiaro */
 }
