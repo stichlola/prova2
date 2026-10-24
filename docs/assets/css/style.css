@@ -566,7 +566,11 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
 .hero-logo img { animation: none; filter: none; }
 /* team: arco fino in fondo alla sezione, testi sopra l'arco, foto dentro i cerchi, nomi col font di Plutone */
 .team-section { padding-bottom: 0; }
-.team-section .bg-arch { top: 40px; bottom: 0; height: calc(100% - 40px); }
+.team-section .bg-arch {
+  top: auto; bottom: -9%; left: 50%; transform: translateX(-50%);
+  width: min(900px, 130%); max-width: none; height: auto; opacity: 1;
+  filter: brightness(0) invert(.9); /* linee bianche del logo rese grigio chiaro */
+}
 .team-section > .container { position: relative; z-index: 1; padding-bottom: clamp(64px, 9vw, 110px); }
 .team-section .avatar.photo {
   display: block; width: 200px; height: 200px; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
