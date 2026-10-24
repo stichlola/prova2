@@ -284,6 +284,7 @@ section { padding: clamp(64px, 9vw, 110px) 0; }
 .member:hover .avatar { transform: translateY(-6px) rotate(-3deg); }
 .avatar span { transform: translateY(-14px); }
 .member h3 { font-family: var(--f-head); font-weight: 700; letter-spacing: .1em; font-size: 22px; margin: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--grigio); display: inline-block; min-width: 220px; color: #000; }
+.team-section .member h3 { border-bottom: 0; padding-bottom: 0; min-width: 0; }
 .member .role { font-family: var(--f-label); color: var(--azzurro); letter-spacing: .1em; text-transform: uppercase; font-size: 13px; margin: 14px 0 8px; }
 .member p { font-family: var(--f-label); letter-spacing: .04em; color: var(--grigio); max-width: 300px; margin: 0 auto; }
 .member .socials { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
