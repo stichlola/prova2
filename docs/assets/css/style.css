@@ -553,7 +553,7 @@ sup.ai { color: var(--azzurro); font-size: .7em; margin-left: 1px; }
 @media (max-width: 880px) {
   .ideas, .services, .benefits, .benefits.two, .spaces, .commit, .about, .contact-split { grid-template-columns: 1fr; }
   .spaces { grid-template-columns: 1fr 1fr; }
-  .hero-logo { justify-self: center; width: min(300px, 70%); order: -1; }
+  .hero-logo { justify-self: center; width: min(380px, 85%); order: -1; }
   .foot-grid.v2 { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) { .spaces, .foot-grid.v2 { grid-template-columns: 1fr; } }
