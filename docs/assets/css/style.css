@@ -582,7 +582,7 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
   border: 3px solid var(--navy); background: var(--ghiaccio); position: relative;
 }
 .team-section .avatar.photo img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; border-radius: 50%; filter: none; }
-.team-section .member h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: .06em; font-size: 28px; }
+.team-section .member h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: .06em; font-size: 28px; color: var(--navy); }
 
 /* social nel footer: icone in cerchio, si illuminano al passaggio come i box blu */
 .site-footer .social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
