@@ -560,9 +560,18 @@ sup.ai { color: var(--azzurro); font-size: .7em; margin-left: 1px; }
 
 /* Logo arco: il suo sfondo si fonde con il blu del sito (nessun quadrato visibile) */
 /* Il logo è mostrato come SVG trasparente (arco + luce), senza quadrato di sfondo */
-img[src$="logo.webp"] { content: url("../img/logo.svg"); background: none; }
-/* animazione della luce senza aloni quadrati: solo il logo si accende e si abbassa */
-@keyframes accensione {
-  0%,100% { filter: brightness(1); }
-  50% { filter: brightness(.75); }
+img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background: none; }
+/* il logo grande resta fermo (non fluttua) e non cambia luminosità */
+.hero-logo { animation: none; }
+.hero-logo img { animation: none; filter: none; }
+/* luce della lanterna: si accende e si abbassa */
+.hero-logo::after {
+  content: ""; position: absolute; left: 47.9%; top: 40.5%; width: 16%; aspect-ratio: 1;
+  transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, #fff6c9 0%, rgba(255,218,106,.85) 25%, rgba(255,218,106,.35) 50%, rgba(255,218,106,0) 70%);
+  animation: lanterna 3s ease-in-out infinite;
+}
+@keyframes lanterna {
+  0%,100% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  50% { opacity: .15; transform: translate(-50%, -50%) scale(.8); }
 }
