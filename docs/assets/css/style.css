@@ -621,10 +621,11 @@ img[src$="logo.webp"] { content: url("../img/logo-trasparente.webp"); background
 /* si accende gradualmente, poi si spegne di colpo */
 @keyframes lanterna {
   0% { opacity: .1; transform: translate(-50%, -50%) scale(.8); animation-timing-function: ease-in; }
-  80% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); animation-timing-function: linear; }
-  80.5%, 100% { opacity: .1; transform: translate(-50%, -50%) scale(.8); }
+  31% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); animation-timing-function: linear; }
+  93.5% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  93.7%, 100% { opacity: .1; transform: translate(-50%, -50%) scale(.8); }
 }
-.hero-logo::after { animation: lanterna 4s infinite; }
+.hero-logo::after { animation: lanterna 8s infinite; }
 
 /* luce fissa (sempre accesa) nel logo della barra di navigazione e del footer */
 .brand img, .foot-brand img {
